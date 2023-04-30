@@ -9,6 +9,7 @@ public class CurrencyExchage {
 	private String to;
 	private BigDecimal currencyMuntiple;
 	
+	private String environment;
 	
 	public CurrencyExchage() {
 		super();
@@ -45,6 +46,14 @@ public class CurrencyExchage {
 	}
 	public void setCurrencyMuntiple(BigDecimal currencyMuntiple) {
 		this.currencyMuntiple = currencyMuntiple;
+	}
+
+	public String getEnvironment() {
+		return environment;
+	}
+
+	public void setEnvironment(String environment) {
+		this.environment = environment;
 	}
 
 }
