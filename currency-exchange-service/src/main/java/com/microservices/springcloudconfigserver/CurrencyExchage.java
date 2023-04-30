@@ -2,12 +2,25 @@ package com.microservices.springcloudconfigserver;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class CurrencyExchage {
 
+	@Id
 	private Long id;
+	
+	/*
+	 * Column property is added because from is SQL keyword and 
+	 * cannot use it as a column
+	 */
+	@Column(name="currency_from")
 	private String from;
+	@Column(name="currency_to")
 	private String to;
-	private BigDecimal currencyMuntiple;
+	private BigDecimal conversionMuntiple;
 	
 	private String environment;
 	
@@ -15,12 +28,12 @@ public class CurrencyExchage {
 		super();
 	}
 	
-	public CurrencyExchage(Long id, String from, String to, BigDecimal currencyMuntiple) {
+	public CurrencyExchage(Long id, String from, String to, BigDecimal conversionMuntiple) {
 		super();
 		this.id = id;
 		this.from = from;
 		this.to = to;
-		this.currencyMuntiple = currencyMuntiple;
+		this.conversionMuntiple = conversionMuntiple;
 	}
 
 	public Long getId() {
@@ -41,11 +54,11 @@ public class CurrencyExchage {
 	public void setTo(String to) {
 		this.to = to;
 	}
-	public BigDecimal getCurrencyMuntiple() {
-		return currencyMuntiple;
+	public BigDecimal getConversionMuntiple() {
+		return conversionMuntiple;
 	}
-	public void setCurrencyMuntiple(BigDecimal currencyMuntiple) {
-		this.currencyMuntiple = currencyMuntiple;
+	public void setConversionMuntiple(BigDecimal conversionMuntiple) {
+		this.conversionMuntiple = conversionMuntiple;
 	}
 
 	public String getEnvironment() {
