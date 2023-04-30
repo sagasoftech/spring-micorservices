@@ -14,13 +14,19 @@ public class CurrencyExchangeController {
 	@Autowired
 	private Environment environment;
 	
+	@Autowired
+	private CurrencyExchangeRepository repository;
+	
 	@GetMapping("/currency-exchange/from/{from}/to/{to}")
 	public CurrencyExchage retriveExcangeValue(
 			@PathVariable String from, 
 			@PathVariable String to) {
 		
-		CurrencyExchage currencyExchage = new CurrencyExchage(1000L, from, to, 
-				BigDecimal.valueOf(50));
+		CurrencyExchage currencyExchage = repository.findByFromAndTo(from, to);
+		
+		if(currencyExchage == null) {
+			throw new RuntimeException("Unable to find for " + from + " to " + to);
+		}
 		String port = environment.getProperty("local.server.port");
 		currencyExchage.setEnvironment(port);
 		
