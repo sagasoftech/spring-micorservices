@@ -20,7 +20,7 @@ public class CurrencyExchage {
 	private String from;
 	@Column(name="currency_to")
 	private String to;
-	private BigDecimal conversionMuntiple;
+	private BigDecimal conversionMultiple;
 	
 	private String environment;
 	
@@ -28,12 +28,12 @@ public class CurrencyExchage {
 		super();
 	}
 	
-	public CurrencyExchage(Long id, String from, String to, BigDecimal conversionMuntiple) {
+	public CurrencyExchage(Long id, String from, String to, BigDecimal conversionMultiple) {
 		super();
 		this.id = id;
 		this.from = from;
 		this.to = to;
-		this.conversionMuntiple = conversionMuntiple;
+		this.conversionMultiple = conversionMultiple;
 	}
 
 	public Long getId() {
@@ -54,11 +54,11 @@ public class CurrencyExchage {
 	public void setTo(String to) {
 		this.to = to;
 	}
-	public BigDecimal getConversionMuntiple() {
-		return conversionMuntiple;
+	public BigDecimal getConversionMultiple() {
+		return conversionMultiple;
 	}
-	public void setConversionMuntiple(BigDecimal conversionMuntiple) {
-		this.conversionMuntiple = conversionMuntiple;
+	public void setConversionMultiple(BigDecimal conversionMultiple) {
+		this.conversionMultiple = conversionMultiple;
 	}
 
 	public String getEnvironment() {
