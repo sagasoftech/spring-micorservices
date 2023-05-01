@@ -22,6 +22,11 @@ public class ApiGatewayConfiguration {
 						.uri("lb://currency-conversion"))
 				.route(p -> p.path("/currency-conversion-feign/**")
 						.uri("lb://currency-conversion"))
+				.route(p -> p.path("/currency-conversion-new/**")
+						.filters(f -> f.rewritePath(
+								"/currency-conversion-new/(?<segment>.*)", //segment added to identify next URL part as a segment
+								"/currency-conversion-feign/${segment}")) //Append above segment for build URL
+						.uri("lb://currency-conversion"))
 				.build();
 	}
 }
