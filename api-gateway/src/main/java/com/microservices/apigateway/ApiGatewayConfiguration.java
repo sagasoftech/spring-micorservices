@@ -18,6 +18,10 @@ public class ApiGatewayConfiguration {
 						.uri("http://httpbin.org:80"))
 				.route(p -> p.path("/currency-exchange/**") //Any URL that start with
 						.uri("lb://currency-exchange")) //Talk to Eureka server, find the location of service and do load balancing
+				.route(p -> p.path("/currency-conversion/**")
+						.uri("lb://currency-conversion"))
+				.route(p -> p.path("/currency-conversion-feign/**")
+						.uri("lb://currency-conversion"))
 				.build();
 	}
 }
