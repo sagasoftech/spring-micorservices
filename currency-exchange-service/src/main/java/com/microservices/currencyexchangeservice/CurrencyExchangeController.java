@@ -1,4 +1,4 @@
-package com.microservices.springcloudconfigserver;
+package com.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
 

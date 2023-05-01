@@ -1,4 +1,4 @@
-package com.microservices.springcloudconfigserver;
+package com.microservices.currencyexchangeservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
