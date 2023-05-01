@@ -17,7 +17,9 @@ public class ApiGatewayConfiguration {
 	public RouteLocator getwayRouter(RouteLocatorBuilder builder) {
 		Function<PredicateSpec, Buildable<Route>> routeFunction
 					= p -> p.path("/get")
-							.filters(f -> f.addRequestHeader("MyHeader", "MyURI"))
+							.filters(f -> f
+									.addRequestHeader("MyHeader", "MyURI")
+									.addRequestParameter("Param", "MyValue"))
 							.uri("http://httpbin.org:80");
 		return builder.routes()
 				.route(routeFunction)
